@@ -130,9 +130,8 @@ int main() {
     master_proc();
   }
 
-  printf("El recuento de ln(1 + x) miembros de la serie de Mercator es %d\n",
-         SERIES_MEMBER_COUNT);
-  printf("El valor del argumento x es %f\n", x);
+  printf("Mercator series member count for ln(1 + x) is %d\n", SERIES_MEMBER_COUNT);
+  printf("The value of argument x is %f\n", x);
 
   for (i = 0; i < NPROCS + 1; i++) {
     wait(NULL);
@@ -143,9 +142,9 @@ int main() {
   elapsed_seconds = (end_time.tv_sec - start_time.tv_sec) +
                     (end_time.tv_usec - start_time.tv_usec) / 1000000.0;
 
-  printf("Tiempo de ejecucion = %.6f segundos\n", elapsed_seconds);
-  printf("El resultado es %10.8f\n", *res);
-  printf("Llamando a la función ln(1 + %f) = %10.8f\n", x, log(1 + x));
+  printf("Execution time = %.6f seconds\n", elapsed_seconds);
+  printf("The result is %10.8f\n", *res);
+  printf("Calling the function ln(1 + %f) = %10.8f\n", x, log(1 + x));
 
   shmdt(shmstart);
   shmctl(shmid, IPC_RMID, NULL);
